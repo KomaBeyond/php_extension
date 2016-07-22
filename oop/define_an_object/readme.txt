@@ -6,3 +6,8 @@
 推荐使用后者，而在代码中我使用了前者
 5，最后注意不论使用 PHP_METHOD 还是使用 ZEND_METHOD 都需要在头文件中进行声明，类似于MINIT这类的方法一样，都需要先在头文件中声明
 
+6，php调用实例
+```php
+$fanta = new Fanta();
+$fanta->run();
+```
