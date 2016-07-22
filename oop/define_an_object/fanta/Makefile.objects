@@ -1,0 +1,8 @@
+fanta.lo: /data0/php-src/ext/fanta/fanta.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/data0/php-src/ext/fanta $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /data0/php-src/ext/fanta/fanta.c -o fanta.lo 
+$(phplibdir)/fanta.la: ./fanta.la
+	$(LIBTOOL) --mode=install cp ./fanta.la $(phplibdir)
+
+./fanta.la: $(shared_objects_fanta) $(FANTA_SHARED_DEPENDENCIES)
+	$(LIBTOOL) --mode=link $(CC) $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) $(LDFLAGS) -o $@ -export-dynamic -avoid-version -prefer-pic -module -rpath $(phplibdir) $(EXTRA_LDFLAGS) $(shared_objects_fanta) $(FANTA_SHARED_LIBADD)
+
